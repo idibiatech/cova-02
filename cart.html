@@ -48,19 +48,6 @@
 	</head>
 
 	<body>
-		<!-- ===== Loader ===== -->
-		<div class="loader">
-			<div class="spinner">
-				<div class="cloud1">
-					<img src="images/clouds/cloud-blue.svg" alt="" />
-				</div>
-				<div class="cloud2">
-					<img src="images/clouds/cloud-green.svg" alt="" />
-				</div>
-			</div>
-		</div>
-		<!-- ===== End of Loader ===== -->
-
 		<!-- ===== Top Header ===== -->
 		<div class="top-header">
 			<div class="container">
@@ -148,8 +135,12 @@
 						>
 							<ul class="nav navbar-nav navbar-right">
 								<!-- Simple Menu Item -->
-								<li class="dropdown simple-menu active">
-									<a href="#" class="" data-toggle="dropdown" role="button"
+								<li class="dropdown simple-menu">
+									<a
+										href="./index.html"
+										class=""
+										data-toggle="dropdown"
+										role="button"
 										>home</a
 									>
 								</li>
@@ -178,7 +169,7 @@
 
 													<ul class="col-md-4">
 														<li class="menu-title">pages</li>
-														<li><a href="cart.html">cart</a></li>
+														<li class="active"><a href="cart.html">cart</a></li>
 														<li><a href="domain.html">domain</a></li>
 														<li>
 															<a href="testimonials.html">testimonials</a>
@@ -195,7 +186,7 @@
 								<!-- Simple Menu Item -->
 								<li class="dropdown simple-menu">
 									<a
-										href="blog-listing.html#"
+										href="blog-listing.html"
 										class="dropdown-toggle"
 										data-toggle="dropdown"
 										role="button"
@@ -305,7 +296,7 @@
 							</thead>
 							<tbody>
 								<!-- Start of Product 1 -->
-								<tr>
+								<!-- <tr>
 									<td>
 										<div class="product-name">
 											<h3>Starter</h3>
@@ -332,11 +323,11 @@
 											<a href="#"><i class="fa fa-close"></i></a>
 										</div>
 									</td>
-								</tr>
+								</tr> -->
 								<!-- End of Product 1 -->
 
 								<!-- Start of Product 2 -->
-								<tr>
+								<!-- <tr>
 									<td>
 										<div class="product-name">
 											<h3>Agency</h3>
@@ -363,11 +354,11 @@
 											<a href="#"><i class="fa fa-close"></i></a>
 										</div>
 									</td>
-								</tr>
+								</tr> -->
 								<!-- End of Product 2 -->
 
 								<!-- Start of Product 3 -->
-								<tr>
+								<!-- <tr>
 									<td>
 										<div class="product-name">
 											<h3>.com Domain</h3>
@@ -394,7 +385,7 @@
 											<a href="#"><i class="fa fa-close"></i></a>
 										</div>
 									</td>
-								</tr>
+								</tr> -->
 								<!-- End of Product 3 -->
 							</tbody>
 						</table>
@@ -410,7 +401,7 @@
 								<h4>Subtotal</h4>
 							</div>
 							<div class="col-md-6 cart-right">
-								<h4>$215.00</h4>
+								<h4>$0.00</h4>
 							</div>
 						</div>
 
@@ -419,7 +410,7 @@
 								<span>Estimated Taxes</span>
 							</div>
 							<div class="col-md-6 cart-right">
-								<span>$2.99</span>
+								<span>$0.00</span>
 							</div>
 						</div>
 
@@ -440,7 +431,7 @@
 								<h4>Total<br /><span>(US Dollar)</span></h4>
 							</div>
 							<div class="col-xs-6 cart-right">
-								<span class="price">$215.00</span>
+								<span class="price">$0.00</span>
 							</div>
 						</div>
 
@@ -760,30 +751,5 @@
 		<script src="js/jquery.magnific-popup.min.js"></script>
 		<script src="js/isotope.pkgd.min.js"></script>
 		<script src="js/custom.js"></script>
-
-		<script>
-			(function (i, s, o, g, r, a, m) {
-				i["GoogleAnalyticsObject"] = r;
-				(i[r] =
-					i[r] ||
-					function () {
-						(i[r].q = i[r].q || []).push(arguments);
-					}),
-					(i[r].l = 1 * new Date());
-				(a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
-				a.async = 1;
-				a.src = g;
-				m.parentNode.insertBefore(a, m);
-			})(
-				window,
-				document,
-				"script",
-				"https://www.google-analytics.com/analytics.js",
-				"ga"
-			);
-
-			ga("create", "UA-60264400-3", "auto");
-			ga("send", "pageview");
-		</script>
 	</body>
 </html>
