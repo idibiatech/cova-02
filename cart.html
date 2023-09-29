@@ -297,7 +297,7 @@
 									<th class="col-md-2">&nbsp;</th>
 								</tr>
 							</thead>
-							<tbody>
+							<tbody id="cart-body">
 								<!-- Start of Product 1 -->
 								<!-- <tr>
 									<td>
@@ -365,7 +365,7 @@
 									<td>
 										<div class="product-name">
 											<h3>.com Domain</h3>
-											<div class="tag-line">Choosen domain</div>
+											<div class="tag-line">Chosen domain</div>
 										</div>
 									</td>
 
@@ -736,6 +736,94 @@
 		<script src="js/jquery.easypiechart.min.js"></script>
 		<script src="js/jquery.magnific-popup.min.js"></script>
 		<script src="js/isotope.pkgd.min.js"></script>
+		<script src="./js/func.js"></script>
 		<script src="js/custom.js"></script>
+
+		<script>
+			// Function to retrieve cart items from local storage
+			function getCartItems() {
+				const cartItemsJSON = localStorage.getItem("selectedPlanData");
+				return JSON.parse(cartItemsJSON) || [];
+			}
+
+			// Function to display cart items in the table
+			function displayCartItems() {
+				const cartBody = document.getElementById("cart-body");
+				const cartItems = getCartItems();
+
+				cartBody.innerHTML = ""; // Clear the cart table
+
+				cartItems.forEach((item) => {
+					const newRow = document.createElement("tr");
+					newRow.innerHTML = `
+				  <td>
+					<div class="product-name">
+					  <h3>${item.planName}</h3>
+					  <div class="tag-line">${item.planName} Hosting Plan</div>
+					</div>
+				  </td>
+				  <td>
+					<div class="term">
+					  <input type="number" value="1" />
+					</div>
+				  </td>
+				  <td>
+					<div class="price">$${item.planPrice}.00</div>
+				  </td>
+				  <td>
+					<div class="price">$${item.planPrice}.00</div>
+				  </td>
+				  <td>
+					<div class="delete">
+					  <a href="#" class="remove-item"><i class="fa fa-close"></i></a>
+					</div>
+				  </td>
+				`;
+					cartBody.appendChild(newRow);
+				});
+
+				// Add click event listeners to the delete icons for removing items
+				const deleteIcons = document.querySelectorAll(".remove-item");
+				deleteIcons.forEach((deleteIcon, index) => {
+					deleteIcon.addEventListener("click", function (e) {
+						e.preventDefault();
+						// Remove the item from the cart items array and update local storage
+						const cartItems = getCartItems();
+						cartItems.splice(index, 1);
+						localStorage.setItem("selectedPlanData", JSON.stringify(cartItems));
+						// Redisplay the cart items
+						displayCartItems();
+					});
+				});
+			}
+
+			// Display the cart items when the page loads
+			displayCartItems();
+		</script>
+		Thank you for providing the correct HTML section. To update the total price
+		in this section dynamically, you can modify the JavaScript code as follows:
+		```html
+		<script>
+			// ... (previous code)
+
+			// Function to calculate and display the total price
+			function displayTotalPrice() {
+				const cartItems = getCartItems();
+				const totalElement = document.querySelector(".order-total .price");
+
+				// Calculate the total price by summing up the prices of all cart items
+				const total = cartItems.reduce(
+					(sum, item) => sum + parseFloat(item.planPrice),
+					0
+				);
+
+				// Display the total price in the HTML
+				totalElement.textContent = `$${total.toFixed(2)}`;
+			}
+
+			// Display the cart items and total price when the page loads
+			displayCartItems();
+			displayTotalPrice();
+		</script>
 	</body>
 </html>
