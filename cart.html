@@ -223,7 +223,9 @@
 								<li class="total-cart">
 									<a href="#cart" class="cart">
 										<i class="fa fa-shopping-cart" style="color: #29b1fd"></i>
-										<span class="count btn btn-border btn-blue">0</span>
+										<span id="cart-count" class="count btn btn-border btn-blue"
+											>0</span
+										>
 									</a>
 
 									<!-- Cart on hover -->
@@ -824,6 +826,22 @@
 			// Display the cart items and total price when the page loads
 			displayCartItems();
 			displayTotalPrice();
+		</script>
+		<script>
+			// Function to update the cart count in the HTML based on local storage
+			function updateCartCount() {
+				const cartItems = getCartItems();
+				const cartCountElement = document.getElementById("cart-count");
+
+				// Get the number of items in the cart from local storage
+				const cartCount = cartItems.length;
+
+				// Update the cart count in the HTML
+				cartCountElement.textContent = cartCount;
+			}
+
+			// Call the updateCartCount function when the page loads to initialize the count
+			window.addEventListener("load", updateCartCount);
 		</script>
 	</body>
 </html>

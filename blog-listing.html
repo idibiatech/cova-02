@@ -136,7 +136,11 @@
 							<ul class="nav navbar-nav navbar-right">
 								<!-- Simple Menu Item -->
 								<li class="dropdown simple-menu">
-									<a href="#" class="" data-toggle="dropdown" role="button"
+									<a
+										href="./index.html"
+										class=""
+										data-toggle="dropdown"
+										role="button"
 										>home</a
 									>
 								</li>
@@ -216,7 +220,9 @@
 								<li class="total-cart">
 									<a href="#cart" class="cart">
 										<i class="fa fa-shopping-cart"></i>
-										<span class="count btn btn-border btn-blue">0</span>
+										<span id="cart-count" class="count btn btn-border btn-blue"
+											>0</span
+										>
 									</a>
 
 									<!-- Cart on hover -->
@@ -967,5 +973,20 @@
 		<script src="js/jquery.magnific-popup.min.js"></script>
 		<script src="js/isotope.pkgd.min.js"></script>
 		<script src="js/custom.js"></script>
+		<script>
+			// Function to update the cart count in the HTML
+			function updateCartCount() {
+				const cartCountElement = document.getElementById("cart-count");
+
+				// Retrieve cart count from local storage
+				const cartCount = parseInt(localStorage.getItem("cartCount")) || 0;
+
+				// Update the cart count in the HTML
+				cartCountElement.textContent = cartCount;
+			}
+
+			// Call the updateCartCount function when the page loads to initialize the count
+			window.addEventListener("load", updateCartCount);
+		</script>
 	</body>
 </html>

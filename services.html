@@ -958,5 +958,38 @@
 		<script src="js/jquery.magnific-popup.min.js"></script>
 		<script src="js/isotope.pkgd.min.js"></script>
 		<script src="js/custom.js"></script>
+		<script>
+			// Function to retrieve selected plan data from local storage
+			function getSelectedPlanData() {
+				const planDataJSON = localStorage.getItem("selectedPlanData");
+				return JSON.parse(planDataJSON) || [];
+			}
+
+			// Function to store selected plan data in local storage
+			function storePlanData(planName, planPrice) {
+				const selectedPlanData = getSelectedPlanData();
+				selectedPlanData.push({ planName, planPrice });
+				localStorage.setItem(
+					"selectedPlanData",
+					JSON.stringify(selectedPlanData)
+				);
+			}
+
+			// Attach a click event listener to each "purchase" button
+			const purchaseButtons = document.querySelectorAll(
+				".pricing-plan .btn-blue"
+			);
+			purchaseButtons.forEach((button) => {
+				button.addEventListener("click", function () {
+					const planName =
+						this.closest(".pricing-plan").querySelector(
+							".plan-type span"
+						).textContent;
+					const planPrice =
+						this.closest(".pricing-plan").querySelector(".amount").textContent;
+					storePlanData(planName, planPrice);
+				});
+			});
+		</script>
 	</body>
 </html>
