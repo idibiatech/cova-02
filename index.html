@@ -1324,17 +1324,16 @@
 		<script>
 			// Function to update the cart count in the HTML
 			function updateCartCount() {
+				const cartItems = getSelectedPlanData(); // Get the selected plan data from local storage
 				const cartCountElement = document.getElementById("cart-count");
-
-				// Retrieve cart count from local storage
-				const cartCount = parseInt(localStorage.getItem("cartCount")) || 0;
+				const cartCount = cartItems.length; // Get the number of items in the cart
 
 				// Update the cart count in the HTML
 				cartCountElement.textContent = cartCount;
 			}
 
-			// Call the updateCartCount function when the page loads to initialize the count
-			window.addEventListener("load", updateCartCount);
+			// Update the cart count when the page loads
+			updateCartCount();
 		</script>
 	</body>
 </html>

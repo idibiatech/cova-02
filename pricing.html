@@ -217,7 +217,9 @@
 								<li class="total-cart">
 									<a href="./cart.html" class="cart">
 										<i class="fa fa-shopping-cart"></i>
-										<span class="count btn btn-border btn-blue">0</span>
+										<span id="cart-count" class="count btn btn-border btn-blue"
+											>0</span
+										>
 									</a>
 
 									<!-- Cart on hover -->
@@ -841,6 +843,20 @@
 					storePlanData(planName, planPrice);
 				});
 			});
+		</script>
+		<script>
+			// Function to update the cart count in the HTML
+			function updateCartCount() {
+				const cartItems = getSelectedPlanData(); // Get the selected plan data from local storage
+				const cartCountElement = document.getElementById("cart-count");
+				const cartCount = cartItems.length; // Get the number of items in the cart
+
+				// Update the cart count in the HTML
+				cartCountElement.textContent = cartCount;
+			}
+
+			// Update the cart count when the page loads
+			updateCartCount();
 		</script>
 	</body>
 </html>
