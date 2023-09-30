@@ -891,89 +891,24 @@ Author URI: gnodesign.com
 })(jQuery);
 
 // cart add js
+// script to display carr count on all pages with the cart icon
+// cart-count.js
 
-{
-	/* <script>
 // Function to retrieve selected plan data from local storage
 function getSelectedPlanData() {
-  const planDataJSON = localStorage.getItem('selectedPlanData');
-  return JSON.parse(planDataJSON) || [];
+	const planDataJSON = localStorage.getItem("selectedPlanData");
+	return JSON.parse(planDataJSON) || [];
 }
 
-// Function to store selected plan data in local storage
-function storePlanData(planName, planPrice) {
-  const selectedPlanData = getSelectedPlanData();
-  selectedPlanData.push({ planName, planPrice });
-  localStorage.setItem('selectedPlanData', JSON.stringify(selectedPlanData));
+// Function to update the cart count in the HTML
+function updateCartCount() {
+	const cartItems = getSelectedPlanData(); // Get the selected plan data from local storage
+	const cartCountElement = document.getElementById("cart-count");
+	const cartCount = cartItems.length; // Get the number of items in the cart
+
+	// Update the cart count in the HTML
+	cartCountElement.textContent = cartCount;
 }
 
-// Attach a click event listener to each "purchase" button
-const purchaseButtons = document.querySelectorAll('.pricing-plan .btn-blue');
-purchaseButtons.forEach(button => {
-  button.addEventListener('click', function () {
-    const planName = this.closest('.pricing-plan').querySelector('.plan-type span').textContent;
-    const planPrice = this.closest('.pricing-plan').querySelector('.amount').textContent;
-    storePlanData(planName, planPrice);
-  });
-});
-</script> */
-}
-
-{
-	/* <script>
-			// Function to retrieve selected plan data from local storage
-			function getSelectedPlanData() {
-				const planName = localStorage.getItem("selectedPlanName");
-				const planPrice = localStorage.getItem("selectedPlanPrice");
-				return { planName, planPrice };
-			}
-
-			// Function to add a row to the cart table with plan data
-			function addToCart(planName, planPrice) {
-				const cartBody = document.getElementById("cart-body");
-				const newRow = document.createElement("tr");
-				newRow.innerHTML = `
-				<td>
-				  <div class="product-name">
-					<h3>${planName}</h3>
-					<div class="tag-line">${planName} Hosting Plan</div>
-				  </div>
-				</td>
-				<td>
-				  <div class="term">
-					<input type="number" value="1" />
-				  </div>
-				</td>
-				<td>
-				  <div class="price">$${planPrice}.00</div>
-				</td>
-				<td>
-				  <div class="price">$${planPrice}.00</div>
-				</td>
-				<td>
-				  <div class="delete">
-					<a href="#" class="remove-item"><i class="fa fa-close"></i></a>
-				  </div>
-				</td>
-			  `;
-				cartBody.appendChild(newRow);
-
-				// Add click event listener to the delete icon for removing items
-				const deleteIcon = newRow.querySelector(".remove-item");
-				deleteIcon.addEventListener("click", function (e) {
-					e.preventDefault();
-					// Remove the corresponding row from the cart table
-					newRow.remove();
-					// You can also remove the item from local storage here if needed
-					// For example: localStorage.removeItem('selectedPlanName');
-					//              localStorage.removeItem('selectedPlanPrice');
-				});
-			}
-
-			// Example usage: Retrieve selected plan data and add it to the cart
-			const selectedPlan = getSelectedPlanData();
-			if (selectedPlan.planName && selectedPlan.planPrice) {
-				addToCart(selectedPlan.planName, selectedPlan.planPrice);
-			}
-		</script> */
-}
+// Update the cart count when the page loads
+updateCartCount();

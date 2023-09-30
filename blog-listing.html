@@ -973,20 +973,5 @@
 		<script src="js/jquery.magnific-popup.min.js"></script>
 		<script src="js/isotope.pkgd.min.js"></script>
 		<script src="js/custom.js"></script>
-		<script>
-			// Function to update the cart count in the HTML
-			function updateCartCount() {
-				const cartCountElement = document.getElementById("cart-count");
-
-				// Retrieve cart count from local storage
-				const cartCount = parseInt(localStorage.getItem("cartCount")) || 0;
-
-				// Update the cart count in the HTML
-				cartCountElement.textContent = cartCount;
-			}
-
-			// Call the updateCartCount function when the page loads to initialize the count
-			window.addEventListener("load", updateCartCount);
-		</script>
 	</body>
 </html>
